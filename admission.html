@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#43b9a8">
+<title>Student Admission | RSI Academy</title>
+<style>
+:root{--red:#43b9a8;--red2:#176b59;--ink:#22252b;--muted:#68707c;--line:#e5e7eb;--paper:#f6f7f9;--green:#187747;--shadow:0 18px 50px #20263316}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0,#fff 0,#f6f7f9 45%,#f0f1f4 100%);font-family:Inter,Arial,sans-serif;color:var(--ink);line-height:1.5}.wrap{width:min(1080px,94%);margin:auto}header{background:#ffffffdf;backdrop-filter:blur(12px);border-bottom:1px solid #0000000d;position:sticky;top:0;z-index:5}.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-weight:900}.logo{width:47px;height:47px;border-radius:15px;background:linear-gradient(145deg,#69d5c5,var(--red2));box-shadow:inset 2px 2px 5px #ffffff60,inset -4px -4px 8px #10483d,0 7px 14px #43b9a82c;color:white;display:grid;place-items:center;font-size:20px;letter-spacing:-1px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px}.nav a{color:var(--red);text-decoration:none;font-size:13px;font-weight:800}.hero{padding:42px 0 26px;display:grid;grid-template-columns:1.15fr .85fr;gap:25px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #bdece5;color:var(--red);border-radius:99px;padding:7px 12px;font-size:12px;font-weight:850;box-shadow:0 6px 18px #43b9a80c}.dot{width:8px;height:8px;border-radius:50%;background:#43b9a8;box-shadow:0 0 0 4px #43b9a817}.hero h1{font-size:clamp(32px,4.5vw,53px);line-height:1.06;letter-spacing:-1.8px;margin:15px 0}.hero h1 span{color:var(--red)}.hero p{color:var(--muted);font-size:15px;max-width:590px}.hero-art{border-radius:28px;background:linear-gradient(145deg,#fff,#e3f8f4);border:1px solid white;box-shadow:var(--shadow);padding:26px;min-height:220px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}.hero-art:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:#43b9a80b;right:-50px;top:-55px}.hero-art strong{font-size:22px;position:relative;z-index:1}.hero-art span{font-size:13px;color:var(--muted);position:relative;z-index:1;margin-top:7px}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:1}.pills span{background:white;border:1px solid #c8eee7;padding:7px 10px;border-radius:10px;font-size:11px;font-weight:800;color:#176b59}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;align-items:start;padding-bottom:55px}.form-card,.side-card{background:#fff;border:1px solid #ffffff;border-radius:23px;box-shadow:var(--shadow)}.form-card{padding:clamp(18px,3.5vw,32px)}.form-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:23px}.form-head h2{margin:0;font-size:24px;letter-spacing:-.6px}.form-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.required{font-size:11px;color:var(--red);font-weight:800}.section-title{display:flex;align-items:center;gap:10px;font-weight:900;margin:25px 0 14px}.num{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#e0f7f2;color:var(--red);font-size:12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field.full{grid-column:1/-1}label{display:block;font-size:12px;font-weight:800;margin-bottom:7px;color:#383c44}input,select,textarea{width:100%;border:1px solid #dfe2e7;border-radius:11px;padding:12px 13px;font:inherit;font-size:14px;background:#fff;outline:none;transition:border .2s,box-shadow .2s;color:var(--ink)}input:focus,select:focus,textarea:focus{border-color:#43b9a8;box-shadow:0 0 0 3px #43b9a812}textarea{resize:vertical;min-height:86px}.hint{font-size:11px;color:var(--muted);margin-top:6px}.otpbox{margin-top:10px;padding:15px;border:1px dashed #8edbd0;border-radius:15px;background:#f3fcfa}.otpbox h3{font-size:14px;margin:0 0 5px}.otpbox p{font-size:12px;color:var(--muted);margin:0 0 12px}.otp-actions{display:flex;gap:9px;flex-wrap:wrap}.send-spinner{display:inline-block;width:13px;height:13px;border:2px solid #ffffff70;border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.btn{border:0;border-radius:11px;padding:13px 16px;font-size:13px;font-weight:850;cursor:pointer;transition:transform .2s,box-shadow .2s;background:linear-gradient(145deg,#69d5c5,var(--red2));color:white;box-shadow:0 5px 0 #176b59,0 9px 18px #43b9a820} .btn{position:relative;overflow:hidden;letter-spacing:.1px}.btn:hover{transform:translateY(-2px);filter:saturate(1.08)}.btn:active{transform:translateY(1px);box-shadow:0 2px 0 #176b59,0 5px 12px #43b9a820}.btn:disabled{opacity:.68;cursor:wait;transform:none;filter:grayscale(.12)}#sendBtn{min-width:155px;background:linear-gradient(135deg,#7ce4d5 0%,#43b9a8 48%,#218c7b 100%);box-shadow:0 5px 0 #176b59,0 10px 22px #43b9a833;font-size:14px;padding:14px 20px;display:inline-flex;align-items:center;justify-content:center;gap:9px}#sendBtn:before{content:"✉";font-size:17px;line-height:1}#sendBtn:not(:disabled){animation:sendGlow 2.6s ease-in-out infinite}#sendBtn:disabled:before{content:"◌";animation:spin 1s linear infinite}@keyframes sendGlow{0%,100%{box-shadow:0 5px 0 #176b59,0 8px 16px #43b9a81c}50%{box-shadow:0 5px 0 #176b59,0 10px 24px #43b9a855}}@keyframes spin{to{transform:rotate(360deg)}}.otpbox{border-style:solid;border-color:#bdece5;background:linear-gradient(145deg,#f8fffd,#eafaf6);box-shadow:inset 0 1px 0 #fff,0 8px 20px #176b5908}.otpbox h3{color:#176b59}.otp-actions .btn{min-height:46px}.btn.secondary{background:linear-gradient(145deg,#555d68,#353a42);box-shadow:0 5px 0 #25282e,0 9px 18px #00000016}.btn.light{background:#fff;color:var(--red);border:1px solid #bdece5;box-shadow:none}.btn.block{width:100%;margin-top:18px;padding:15px}.notice{display:none;padding:12px 13px;border-radius:11px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:14px}.notice.ok{display:block;background:#e9f7ee;color:#17643a;border:1px solid #c8ead4}.notice.err{display:block;background:#fff4f2;color:#9c3428;border:1px solid #f3d4ce}.checkrow{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:12px;color:#505762}.checkrow input{width:17px;height:17px;margin-top:1px;flex-shrink:0;accent-color:var(--red)}.side{display:grid;gap:15px}.side-card{padding:21px}.side-card h3{margin:0 0 12px;font-size:16px}.side-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}.step{display:flex;gap:10px;margin-top:13px;font-size:12px;align-items:flex-start}.step b{flex-shrink:0;width:23px;height:23px;display:grid;place-items:center;border-radius:8px;background:#e0f7f2;color:var(--red)}.step span{color:#555d68;padding-top:2px}.contact{background:linear-gradient(145deg,#fff,#e7f9f5)}footer{text-align:center;color:#777;font-size:11px;padding:0 12px 28px}.status{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#176b59;font-weight:800}.status i{width:7px;height:7px;border-radius:50%;background:#43b9a8}@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:30px}.hero-art{min-height:160px}.layout{grid-template-columns:1fr}.side{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.nav{min-height:64px}.brand{font-size:13px}.logo{width:41px;height:41px}.hero h1{letter-spacing:-1px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.side{grid-template-columns:1fr}.form-head h2{font-size:21px}.otp-actions .btn{flex:1}.form-card{border-radius:18px}.hero-art{padding:21px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand"><div class="logo">RSI</div><div>RSI ACADEMY<small>RELIABLE SKILL INSTITUTE</small></div></div><a href="https://www.rsiacademy.com/home">← Back to website</a></div></header>
+<main class="wrap">
+<section class="hero"><div><div class="eyebrow"><i class="dot"></i> ADMISSIONS OPEN</div><h1>Start your journey.<br><span>Build your future.</span></h1><p>RSI Academy mein admission ke liye neeche form bharein. Submit karne se pehle email OTP verify karna zaroori hai.</p></div><div class="hero-art"><strong>Learn Skills. Build Confidence.</strong><span>Practical computer education for your next step.</span><div class="pills"><span>Computer Courses</span><span>Practical Learning</span><span>Student Support</span></div></div></section>
+<div class="layout"><section class="form-card"><div class="form-head"><div><h2>Student Admission Form</h2><p>Apni details sahi-sahi fill karein.</p></div><span class="required">* Required fields</span></div>
+<form id="admissionForm">
+<div class="section-title"><span class="num">01</span> Personal details</div><div class="grid">
+<div class="field"><label for="fullName">Student full name *</label><input id="fullName" name="fullName" required maxlength="100" autocomplete="name" placeholder="Enter full name"></div>
+<div class="field"><label for="dob">Date of birth *</label><input id="dob" name="dob" type="date" required></div>
+<div class="field"><label for="gender">Gender *</label><select id="gender" name="gender" required><option value="">Select gender</option><option>Female</option><option>Male</option><option>Other</option><option>Prefer not to say</option></select></div>
+<div class="field"><label for="mobile">Mobile number *</label><input id="mobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile number"></div>
+<div class="field full"><label for="email">Student email / Gmail *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="student@gmail.com"><div class="hint">OTP isi email address par bheja jayega.</div><div class="otpbox"><h3>Verify email with OTP</h3><p>Admission continue karne ke liye email verification required hai.</p><div class="otp-actions"><button class="btn" type="button" id="sendBtn">Send OTP</button><button class="btn secondary" type="button" id="resendBtn" disabled>Resend OTP</button></div><div id="otpEntry" style="display:none;margin-top:13px"><label for="otp">6-digit email OTP *</label><input id="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="Enter 6-digit OTP"><button class="btn secondary" type="button" id="verifyBtn" style="margin-top:10px">Verify OTP</button></div><div id="otpStatus" class="status" style="margin-top:12px"><i></i><span>Email not verified</span></div></div></div>
+</div>
+<div class="section-title"><span class="num">02</span> Course & education</div><div class="grid">
+<div class="field"><label for="course">Choose course *</label><select id="course" name="course" required><option value="">Select course</option><option>ADCA</option><option>DCA</option><option>MS Office</option><option>Advanced Excel</option><option>Tally / Accounting</option><option>HTML + CSS + JavaScript</option><option>Python Programming</option><option>Java Programming</option><option>C / C++ Programming</option><option>Graphic Design</option><option>Computer Fundamentals</option><option>Other / Counselling Required</option></select></div>
+<div class="field"><label for="education">Highest education *</label><select id="education" name="education" required><option value="">Select education</option><option>Below Class 10</option><option>Class 10 Pass</option><option>Class 12 Pass</option><option>Graduate</option><option>Postgraduate</option><option>Other</option></select></div>
+<div class="field"><label for="batch">Preferred batch *</label><select id="batch" name="batch" required><option value="">Select batch</option><option>Morning Batch</option><option>Afternoon Batch</option><option>Evening Batch</option><option>Need counselling</option></select></div>
+<div class="field"><label for="mode">Learning mode *</label><select id="mode" name="mode" required><option value="">Select mode</option><option>Offline - Main Branch</option><option>Online</option><option>Need counselling</option></select></div>
+<div class="field full"><label for="address">Full address *</label><textarea id="address" name="address" required maxlength="500" placeholder="Village / Town, Post, Block, District, State"></textarea></div>
+</div>
+<div class="checkrow"><input id="consent" type="checkbox" required><label for="consent" style="font-weight:600;margin:0">I confirm that the details provided are correct and agree that RSI Academy may contact me about this admission enquiry. Email OTP verification is mandatory.</label></div>
+<button class="btn block" type="submit" id="submitBtn">Submit Admission Form</button><div id="formMessage" class="notice" role="status" aria-live="polite"></div>
+</form></section>
+<aside class="side"><div class="side-card"><h3>How to apply</h3><div class="step"><b>1</b><span>Fill in your personal details and select a course.</span></div><div class="step"><b>2</b><span>Send OTP to your email and verify the 6-digit code.</span></div><div class="step"><b>3</b><span>Submit the form. WhatsApp will open with your details for sending.</span></div></div><div class="side-card"><h3>Important</h3><p>Use an email address you can access. Check Inbox and Spam for OTP. Never share your OTP with anyone.</p></div><div class="side-card contact"><h3>Need help?</h3><p>RSI Academy<br>Reliable Skill Institute<br>Ghurua Khurd, Manjhiaon, Garhwa, Jharkhand</p><p style="margin-top:12px"><span style="font-weight:800;color:#252525">Admission support:</span> 8102046698</p></div></aside></div>
+</main><footer>© <span id="year"></span> RSI Academy · Reliable Skill Institute</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(() => {
+  const SUPABASE_URL = "https://ackvdjnmuuflwcwhbzpb.supabase.co";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_r9vr_L3Zf3zp0Lv_2hRS7Q_LyTgHnuQ";
+  const $ = id => document.getElementById(id);
+  const form = $('admissionForm'); let emailVerified = false; let verifiedEmail = '';
+  $('year').textContent = new Date().getFullYear();
+  const status = (text, ok=false) => { $('otpStatus').innerHTML = '<i style="background:'+(ok?'#21834d':'#43b9a8')+'"></i><span></span>'; $('otpStatus').querySelector('span').textContent = text; $('otpStatus').style.color = ok ? '#17643a' : '#176b59'; };
+  const message = (text, ok=false) => { const el=$('formMessage'); el.className='notice '+(ok?'ok':'err'); el.textContent=text; };
+  const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  let client;
+  try {
+    if (!window.supabase?.createClient) throw new Error('Supabase library load nahi hui. Internet connection check karein.');
+    client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
+  } catch(e) { status('Supabase connection unavailable'); message(e.message); }
+  function lockVerification(){ emailVerified=false; verifiedEmail=''; status('Email not verified'); }
+  $('email').addEventListener('input', () => { if ($('email').value.trim().toLowerCase() !== verifiedEmail.toLowerCase()) lockVerification(); });
+  let otpRequestInProgress = false;
+  async function sendOtp(){
+    if (otpRequestInProgress) return;
+    if (location.protocol === 'file:') {
+      message('Aap HTML file ko direct (file://) open kar rahe hain. Is page ko HTTPS hosting par upload karke kholein, ya localhost server se test karein.');
+      return;
+    }
+    if (!navigator.onLine) {
+      message('Internet connection offline dikh raha hai. Internet connect karke phir Send OTP dabayein.');
+      return;
+    }
+    if (!window.supabase?.createClient || !client) {
+      message('Supabase JS library load nahi hui. Internet check karein aur page refresh karein.');
+      return;
+    }
+    const email=$('email').value.trim();
+    if(!validEmail(email)){message('Please sahi email address enter karein.');$('email').focus();return;}
+    const b=$('sendBtn'), rb=$('resendBtn');
+    otpRequestInProgress = true; b.disabled=true; rb.disabled=true;
+    b.innerHTML='<span class="send-spinner" aria-hidden="true"></span> Sending OTP…';
+    try {
+      const {data,error}=await client.auth.signInWithOtp({email, options:{shouldCreateUser:true, emailRedirectTo: location.origin + '/admission.html'}});
+      if(error) throw error;
+      $('otpEntry').style.display='block'; $('otp').focus();
+      message('OTP request Supabase ne accept kar li. Inbox aur Spam folder check karein. OTP na aaye to Supabase → Authentication → SMTP Settings, email template ({{ .Token }}) aur Auth Logs check karein.',true);
+    } catch(e) {
+      const m=String(e?.message || e || 'Unknown error');
+      if(/failed to fetch|networkerror|load failed|fetch failed|network request failed/i.test(m)) {
+        message('Supabase tak connection nahi ban raha (Failed to fetch).\n\n1. Page ko HTTPS par kholein.\n2. Supabase URL/project status aur publishable key check karein.\n3. Ad-blocker/VPN band karke ya doosre network se try karein.\n4. F12 → Network → otp request ka error dekhein.\n\nAgar request ka HTTP status hi nahi hai, to SMTP se pehle network/DNS/browser connection fix karna hoga.');
+      } else {
+        message('OTP send nahi hua: '+m+'\n\nSupabase Dashboard → Authentication → Logs check karein. Email OTP ke liye SMTP configured aur email template mein {{ .Token }} hona chahiye.');
+      }
+    } finally {
+      otpRequestInProgress = false; b.disabled=false; rb.disabled=false;
+      b.innerHTML='✉ Send OTP';
+    }
+  }
+  async function verifyOtp(){
+    if(!client) return message('Supabase connection available nahi hai.');
+    const email=$('email').value.trim(), token=$('otp').value.trim();
+    if(!validEmail(email)) return message('Sahi email address enter karein.');
+    if(!/^\d{6}$/.test(token)) return message('Email mein aaya 6-digit OTP enter karein.');
+    const b=$('verifyBtn'); b.disabled=true; b.textContent='Verifying…';
+    try { const {data,error}=await client.auth.verifyOtp({email,token,type:'email'}); if(error) throw error; if(!data.user) throw new Error('User details return nahi hui.'); emailVerified=true; verifiedEmail=email; status('Email verified successfully',true); message('Email verify ho gaya. Ab admission form submit kar sakte hain.',true); }
+    catch(e){ lockVerification(); message('OTP verify nahi hua: '+(e?.message||'Unknown error')+'\nCode expire ho gaya ho to naya OTP bhejein.'); }
+    finally { b.disabled=false; b.textContent='Verify OTP'; }
+  }
+  $('sendBtn').addEventListener('click',sendOtp); $('resendBtn').addEventListener('click',sendOtp); $('verifyBtn').addEventListener('click',verifyOtp);
+  $('email').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); sendOtp(); } });
+  $('otp').addEventListener('input',()=>{ $('otp').value=$('otp').value.replace(/\D/g,'').slice(0,6); });
+  form.addEventListener('submit', e=>{
+    e.preventDefault(); if(!form.reportValidity()) return;
+    if(!emailVerified || $('email').value.trim().toLowerCase()!==verifiedEmail.toLowerCase()){ message('Admission submit karne se pehle email OTP verify karna required hai.'); $('email').focus(); return; }
+    const data = {
+      'Student name':$('fullName').value.trim(), 'Date of birth':$('dob').value, 'Gender':$('gender').value,
+      'Mobile':$('mobile').value.trim(), 'Email':verifiedEmail, 'Course':$('course').value,
+      'Education':$('education').value, 'Preferred batch':$('batch').value, 'Learning mode':$('mode').value,
+      'Address':$('address').value.trim()
+    };
+    const body='RSI ACADEMY — NEW ADMISSION ENQUIRY\n\n'+Object.entries(data).map(([k,v])=>k+': '+v).join('\n')+'\n\nEmail OTP: Verified';
+    message('Email verified. WhatsApp open ho raha hai. Admission details bhejne ke liye WhatsApp mein Send dabayein.',true);
+    const url='https://wa.me/918102046698?text='+encodeURIComponent(body); window.open(url,'_blank','noopener,noreferrer');
+  });
+  if(client) client.auth.getSession().then(({data,error})=>{ if(!error && data.session?.user){ const user=data.session.user; if(user.email && user.email.toLowerCase()===$('email').value.trim().toLowerCase()){ emailVerified=true;verifiedEmail=user.email;status('Signed-in email verified',true); } } }).catch(()=>{});
+})();
+</script>
+</body></html>

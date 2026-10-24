@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#c90012">
+<title>RSI Academy | Reliable Skill Institute</title>
+<style>
+:root{--red:#079b58;--red2:#087a49;--ink:#151515;--muted:#60636b;--paper:#f4fbf7;--white:#fff;--line:#d9f0e4;--shadow:0 18px 45px rgba(28,31,38,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#fff 0%,#f0faf5 50%,#fff 100%)}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px}.logo{width:45px;height:45px;border-radius:15px;background:linear-gradient(145deg,#55dfa0,#a8000d);display:grid;place-items:center;color:#fff;font-size:24px;box-shadow:inset 3px 3px 7px #ff6874,inset -5px -5px 10px #065d39,0 8px 18px #079b5833;transform:rotate(-4deg)}.brand small{display:block;color:#686868;font-size:10px;font-weight:600;letter-spacing:.7px}.links{display:flex;align-items:center;gap:21px;font-size:13px;font-weight:750}.links a{transition:.2s}.links a:hover{color:var(--red);transform:translateY(-2px)}.nav-actions{display:flex;gap:9px}.btn{border:0;border-radius:999px;padding:12px 20px;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .2s,box-shadow .2s;background:linear-gradient(145deg,#55dfa0,#07864d);color:#fff;box-shadow:0 8px 0 #065d39,0 14px 22px #079b5828}.btn:hover{transform:translateY(-3px);box-shadow:0 11px 0 #065d39,0 20px 25px #079b5833}.btn:active{transform:translateY(4px);box-shadow:0 3px 0 #065d39}.btn.light{background:linear-gradient(145deg,#fff,#e8f7ee);color:#171717;box-shadow:0 7px 0 #c8e6d5,0 12px 20px #00000012}.menu{display:none;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px}
+.hero{padding:62px 0 28px;overflow:hidden;position:relative}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:25px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:#fff;border:1px solid #f2c6cb;border-radius:999px;color:var(--red);font-weight:850;font-size:12px;box-shadow:0 7px 20px #079b5810}.pulse{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px #079b5818}.hero h1{font-size:clamp(38px,5.2vw,66px);line-height:1.04;letter-spacing:-2.5px;margin:20px 0 14px;font-weight:950}.hero h1 span{color:var(--red);text-shadow:2px 3px 0 #f4b9bf}.hero p{color:#4e515a;line-height:1.75;max-width:530px;font-size:15px}.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin:25px 0}.stats{display:flex;gap:25px;flex-wrap:wrap;margin-top:30px}.stat strong{font-size:21px;display:block}.stat span{font-size:11px;color:var(--muted)}.hero-art{min-height:430px;position:relative;display:grid;place-items:center;perspective:1000px}.orb{position:absolute;width:min(390px,90%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 20%,#a9f4d0,#079b58 52%,#065d39);box-shadow:inset 20px 15px 35px #c9f7df,inset -24px -30px 45px #065d39,0 35px 70px #079b5833;transform:rotateX(9deg) rotateY(-12deg)}.screen{position:absolute;width:72%;height:235px;right:0;top:92px;border:9px solid #25262b;border-radius:18px;background:linear-gradient(145deg,#2d3038,#0c0d11);color:white;padding:25px 20px;box-shadow:12px 20px 0 #bfc2c8,0 35px 45px #0002;transform:rotateY(-13deg) rotateX(4deg)}.screen .screen-top{display:flex;gap:5px;margin-bottom:24px}.screen-top i{width:7px;height:7px;border-radius:50%;background:#f44}.screen h3{font-size:24px;line-height:1.1;margin:0}.screen h3 span{color:#ff3b49}.screen p{color:#c7c8ce;font-size:12px}.student{position:absolute;z-index:2;left:9%;bottom:5px;width:55%;height:315px;border-radius:48% 48% 22px 22px;background:linear-gradient(140deg,#f5d4c4,#c98c79);box-shadow:inset 14px 5px 25px #fff8,0 25px 35px #0002;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;transform:rotateY(8deg)}.student:before{content:"";position:absolute;top:22px;width:145px;height:155px;border-radius:48% 48% 44% 44%;background:linear-gradient(135deg,#37221d,#100c0c 70%);box-shadow:inset 10px 2px 12px #77504a}.student:after{content:"";position:absolute;top:52px;width:105px;height:120px;border-radius:42% 42% 47% 47%;background:linear-gradient(120deg,#eec1a5,#c9846d);box-shadow:inset -8px -5px 10px #9b574d}.student .shirt{z-index:1;width:82%;height:145px;border-radius:48% 48% 0 0;background:linear-gradient(130deg,#fff,#dfe3e8);box-shadow:inset 10px 0 15px #fff}.float-card{position:absolute;z-index:4;background:linear-gradient(145deg,#fff,#e8f7ef);border:1px solid #fff;border-radius:18px;padding:13px 15px;box-shadow:10px 13px 22px #0002,inset 1px 1px 3px #fff;font-weight:900;animation:float 4s ease-in-out infinite}.float-card small{display:block;color:#777;font-size:10px;margin-top:3px}.fc1{top:47px;left:2%;transform:rotate(-8deg)}.fc2{top:42px;right:2%;animation-delay:1s;transform:rotate(7deg)}.fc3{bottom:26px;right:1%;animation-delay:1.6s;transform:rotate(-4deg)}@keyframes float{0%,100%{translate:0 0}50%{translate:0 -11px}}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px auto 58px}.quick-card{background:linear-gradient(145deg,#fff,#f0faf5);border:1px solid #fff;border-radius:19px;padding:18px;display:flex;align-items:center;gap:13px;box-shadow:0 12px 28px #20232b0c;transition:.25s}.quick-card:hover{transform:translateY(-7px) rotateX(3deg);box-shadow:var(--shadow)}.quick-icon{width:45px;height:45px;flex-shrink:0;border-radius:14px;background:linear-gradient(145deg,#55dfa0,#087a49);color:#fff;display:grid;place-items:center;font-size:22px;box-shadow:inset 2px 2px 5px #c9f7df,inset -3px -3px 5px #73000a,0 6px 12px #079b5829}.quick-card strong{display:block;font-size:13px}.quick-card span{font-size:11px;color:var(--muted)}
+section{padding:25px 0 50px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:25px}.section-head h2{font-size:clamp(27px,3vw,38px);letter-spacing:-1.2px;margin:0;font-weight:950}.section-head h2 span{color:var(--red)}.section-head p{color:var(--muted);font-size:13px;margin:7px 0 0}.courses{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.course{background:linear-gradient(145deg,#fff,#f0faf5);border:1px solid white;border-radius:21px;padding:18px 15px;text-align:center;box-shadow:0 12px 25px #1518210c;transition:transform .25s,box-shadow .25s;transform-style:preserve-3d}.course:hover{transform:translateY(-8px) rotateX(3deg) rotateY(-2deg);box-shadow:0 24px 40px #15182118}.course-art{height:105px;border-radius:16px;background:radial-gradient(circle at 30% 20%,#fff,#e4f7ed);display:grid;place-items:center;font-size:45px;color:var(--red);text-shadow:2px 3px 0 #b7bac2,4px 6px 8px #0002;margin-bottom:15px}.course h3{font-size:16px;margin:0 0 7px}.course p{font-size:11px;line-height:1.5;color:var(--muted);min-height:32px;margin:0 0 12px}.price{font-size:22px;font-weight:950;color:var(--red);margin-bottom:15px}.course .btn{width:100%;padding:11px 8px;font-size:12px}.strip{background:#15161a;color:#fff;border-radius:24px;padding:25px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 20px 35px #0002}.strip h3{font-size:24px;margin:0 0 5px}.strip p{color:#c4c5ca;margin:0;font-size:13px}.strip-badges{display:flex;gap:10px;flex-wrap:wrap}.strip-badges span{padding:10px 13px;background:#ffffff12;border:1px solid #ffffff1c;border-radius:12px;font-size:12px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}.video-panel{min-height:270px;border-radius:25px;background:radial-gradient(circle at 50% 30%,#454750,#111216 75%);display:grid;place-items:center;color:white;box-shadow:inset 0 0 0 8px #fff,0 18px 30px #0002;position:relative;overflow:hidden}.video-panel:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #ffffff25;border-radius:50%;box-shadow:0 0 0 25px #ffffff08,0 0 0 50px #ffffff06}.video-content{z-index:1;text-align:center}.video-content .logo{margin:0 auto 12px}.video-content h3{margin:0 0 13px}.play{width:58px;height:58px;border:0;border-radius:50%;background:var(--red);color:#fff;font-size:22px;box-shadow:0 7px 0 #065d39,0 12px 24px #079b5855}.why-copy h2{font-size:35px;line-height:1.1;margin:0 0 15px}.why-copy h2 span{color:var(--red)}.checks{list-style:none;padding:0;margin:0;display:grid;gap:13px}.checks li{display:flex;align-items:center;gap:10px;font-size:14px}.check{width:22px;height:22px;display:grid;place-items:center;background:var(--red);color:#fff;border-radius:50%;font-size:12px;box-shadow:0 4px 0 #97000d}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.review{padding:22px;border-radius:20px;background:linear-gradient(145deg,#fff,#f0faf5);border:1px solid white;box-shadow:0 12px 28px #0000000b}.review-top{display:flex;align-items:center;gap:12px}.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#ffd7dc,#079b58);color:#fff;font-weight:950}.review h3{font-size:14px;margin:0 0 4px}.stars{color:#f2a900;letter-spacing:2px;font-size:13px}.review p{font-size:13px;line-height:1.7;color:#555a64;margin:16px 0 0}
+footer{background:#121316;color:#fff;padding:42px 0 18px;margin-top:10px}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:30px}.footer-brand p{color:#b7b8bf;line-height:1.7;font-size:13px;max-width:250px}.footer-col h4{margin:0 0 15px;font-size:13px}.footer-col a,.footer-col p{display:block;color:#c4c5ca;font-size:12px;margin:10px 0}.footer-col a:hover{color:#fff}.copyright{border-top:1px solid #ffffff1c;margin-top:30px;padding-top:17px;display:flex;justify-content:space-between;gap:15px;color:#a7a8af;font-size:11px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,120px);background:#17181c;color:#fff;padding:14px 20px;border-radius:14px;box-shadow:var(--shadow);z-index:50;transition:transform .35s;font-size:13px}.toast.show{transform:translate(-50%,0)}
+@media(max-width:980px){.links{gap:12px;font-size:12px}.courses{grid-template-columns:repeat(3,1fr)}.quick{grid-template-columns:repeat(2,1fr)}.hero-art{min-height:390px}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.nav{min-height:67px}.menu{display:block}.links{display:none;position:absolute;top:66px;left:4%;right:4%;padding:18px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch}.links.open{display:flex}.links a{padding:8px}.nav-actions .light{display:none}.nav-actions .btn{padding:10px 14px}.hero{padding-top:35px}.hero-grid{grid-template-columns:1fr}.hero h1{font-size:44px;letter-spacing:-1.7px}.hero-art{min-height:350px}.orb{width:310px}.screen{width:75%;height:190px;top:70px;padding:20px}.screen h3{font-size:19px}.student{height:260px;width:58%;left:10%}.student:before{width:120px;height:135px}.student:after{width:90px;height:105px}.quick{margin-bottom:35px;gap:10px}.quick-card{padding:13px;gap:9px}.quick-icon{width:38px;height:38px}.section-head{align-items:start;flex-direction:column}.courses{grid-template-columns:repeat(2,1fr);gap:12px}.course{padding:12px 10px}.course-art{height:80px;font-size:36px}.price{font-size:19px}.strip{align-items:flex-start;flex-direction:column;padding:22px}.why-grid{grid-template-columns:1fr}.video-panel{min-height:220px}.testimonials{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:22px}.copyright{flex-direction:column}.fc1{left:0}.fc2{right:0}.fc3{right:0}}
+@media(max-width:390px){.brand{font-size:13px}.logo{width:39px;height:39px}.hero h1{font-size:37px}.stats{gap:16px}.quick-card{align-items:flex-start;flex-direction:column}.courses{gap:9px}.footer-grid{grid-template-columns:1fr}}
+
+.image-admin{position:fixed;right:16px;bottom:16px;z-index:40;background:#fff;border:1px solid #d9f0e4;border-radius:18px;padding:12px;box-shadow:0 14px 40px #0002;width:min(300px,calc(100vw - 32px))}
+.image-admin summary{font-weight:850;color:#079b58;cursor:pointer;font-size:13px}
+.image-admin p{font-size:11px;color:#666;margin:8px 0}
+.image-admin label{display:block;font-size:12px;font-weight:750;margin:10px 0 5px}
+.image-admin input[type=file]{width:100%;font-size:11px}
+.image-admin .admin-close{float:right;border:0;background:#f1f1f3;border-radius:8px;padding:4px 8px}
+.user-image{width:100%;height:100%;object-fit:cover;display:block}
+.logo-image{width:100%;height:100%;object-fit:contain;border-radius:inherit}
+.hero-upload{position:absolute;z-index:5;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;display:none}
+.hero-art.has-upload .hero-upload{display:block}
+.hero-art.has-upload .student{display:none}
+.course-art{overflow:hidden}
+.course-art img{width:100%;height:100%;object-fit:contain;display:block}
+@media(max-width:720px){.image-admin{right:8px;bottom:8px;width:min(280px,calc(100vw - 16px))}}
+
+.hero{padding:24px 0 28px;background:linear-gradient(135deg,#fff,#f3f4f6)}
+.hero-banner-wrap{width:min(1500px,96%);margin:auto}
+.hero-banner-image{display:block;width:100%;height:auto;object-fit:contain;border-radius:22px;box-shadow:0 22px 55px rgba(20,20,20,.15)}
+@media(max-width:720px){.hero{padding:12px 0 20px}.hero-banner-wrap{width:100%}.hero-banner-image{border-radius:0}}
+
+/* Smooth scroll-reveal effects */
+.reveal{opacity:0;transform:translateY(34px) scale(.985);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0) scale(1)}
+.reveal-left{opacity:0;transform:translateX(-38px);transition:opacity .8s ease,transform .8s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(38px);transition:opacity .8s ease,transform .8s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.course{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,opacity .7s}
+.course:hover{transform:translateY(-10px) rotateX(4deg) rotateY(-2deg) scale(1.015)}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.service-card{background:linear-gradient(145deg,#fff,#eff0f3);border:1px solid #fff;border-radius:19px;padding:20px;box-shadow:0 12px 28px #1518210c;transition:.3s}
+.service-card:hover{transform:translateY(-7px);box-shadow:0 22px 38px #15182116}
+.service-card .service-icon{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#55dfa0,#087a49);color:#fff;display:grid;place-items:center;font-size:22px;box-shadow:inset 2px 2px 5px #c9f7df,0 7px 13px #079b5828;margin-bottom:13px}
+.service-card h3{margin:0 0 8px;font-size:15px}.service-card p{font-size:12px;color:#626671;line-height:1.65;margin:0}
+.course-grid-extra{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.service-note{font-size:12px;color:#777;line-height:1.6;margin-top:16px}
+@media(max-width:900px){.service-grid{grid-template-columns:repeat(2,1fr)}.course-grid-extra{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.service-grid{grid-template-columns:repeat(2,1fr);gap:10px}.service-card{padding:14px}.course-grid-extra{grid-template-columns:repeat(2,1fr);gap:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.reveal-left,.reveal-right{opacity:1;transform:none;transition:none}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+
+
+.verify-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.verify-info,.verify-form{border:1px solid #fff;border-radius:24px;padding:28px;background:linear-gradient(145deg,#fff,#f0faf5);box-shadow:0 15px 35px #15182110}
+.verify-mark{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,#55dfa0,#a90010);color:#fff;font-size:30px;font-weight:900;box-shadow:inset 2px 2px 5px #c9f7df,0 8px 16px #079b5829}
+.verify-info h3{font-size:23px;margin:18px 0 8px}.verify-info p,.verify-hint{font-size:12px;line-height:1.7;color:#626671}
+.verify-form label{display:block;font-size:12px;font-weight:800;margin:0 0 7px}.verify-form input,.verify-form select{width:100%;padding:13px 14px;margin-bottom:15px;border:1px solid #d8eee2;border-radius:12px;background:#fff;font:inherit;font-size:13px;outline:none}.verify-form input:focus,.verify-form select:focus{border-color:#079b58;box-shadow:0 0 0 3px #079b5815}.verify-form .btn{width:100%;margin-top:4px}.verify-hint{margin-bottom:0}.verify-result{margin-top:14px;padding:12px;border-radius:12px;background:#fff3d8;color:#754c00;font-size:12px;line-height:1.6}
+@media(max-width:720px){.verify-layout{grid-template-columns:1fr}.verify-info,.verify-form{padding:20px}}
+
+
+/* Navigation layout fixes: certificate verification replaces Online Store */
+.links{gap:clamp(8px,1.5vw,21px);flex-wrap:nowrap}
+.links a{white-space:nowrap;font-size:clamp(10px,.92vw,13px)}
+@media(max-width:850px){
+  .links{gap:10px}
+  .links a{font-size:11px}
+  .nav{gap:10px}
+  .brand{flex-shrink:0}
+  .nav-actions{flex-shrink:0}
+}
+@media(max-width:720px){
+  .links{gap:8px}
+  .links a{font-size:14px;white-space:normal}
+  .nav-actions .btn{font-size:12px}
+  .verify-layout{grid-template-columns:minmax(0,1fr)}
+  .verify-form,.verify-info{min-width:0;width:100%}
+  .verify-form input,.verify-form select{min-width:0;width:100%;max-width:100%}
+  .verify-form select{appearance:auto}
+  .section-head h2{overflow-wrap:anywhere}
+  .verify-info h3{font-size:21px}
+}
+
+
+.course-art img{width:100%;height:100%;object-fit:contain;padding:8px}
+
+
+.logo-frame{overflow:hidden;padding:0;background:#fff}
+.logo-frame img{width:100%;height:100%;object-fit:contain;display:block;border-radius:inherit}
+
+
+.hero-slider{position:relative;perspective:1400px;overflow:hidden;border-radius:24px;box-shadow:0 25px 60px rgba(20,20,20,.16);background:#f5f5f7}
+.hero-slide{display:none;min-height:280px;transform-style:preserve-3d}
+.hero-slide.active{display:block;animation:heroEnter .75s cubic-bezier(.2,.7,.2,1) both}
+.hero-slide>img{display:block;width:100%;height:auto;object-fit:contain}
+@keyframes heroEnter{0%{opacity:0;transform:rotateY(9deg) translateZ(-45px) scale(.96);filter:blur(3px)}100%{opacity:1;transform:rotateY(0) translateZ(0) scale(1);filter:blur(0)}}
+.hero-promo{min-height:410px;position:relative;overflow:hidden;display:flex;align-items:center;padding:clamp(28px,5vw,70px);gap:20px;background:radial-gradient(circle at 75% 40%,#ffe1e4,#fff 48%,#f3f4f7);isolation:isolate}
+.hero-promo:before{content:"";position:absolute;z-index:-1;width:360px;height:360px;border-radius:50%;right:12%;top:5%;background:linear-gradient(145deg,#6be7b2,#b50012);box-shadow:inset 16px 14px 30px #ffb1b8,inset -18px -20px 35px #7b000b,0 24px 50px #079b582b}
+.promo-copy{position:relative;z-index:3;max-width:58%}
+.promo-kicker{display:inline-block;color:#079b58;font-weight:900;font-size:12px;letter-spacing:2px;margin-bottom:15px}
+.promo-copy h2{font-size:clamp(30px,4vw,56px);line-height:1.03;letter-spacing:-1.8px;margin:0 0 14px;font-weight:950}
+.promo-copy h2 span{color:#079b58}
+.promo-copy p{max-width:410px;color:#555b66;line-height:1.7;font-size:14px;margin-bottom:24px}
+.hero-promo>img{width:24%;max-height:245px;object-fit:contain;filter:drop-shadow(12px 18px 12px #0002);transform:translateZ(50px) rotateY(-10deg);animation:promoFloat 4s ease-in-out infinite}
+.hero-promo>img.promo-float{width:13%;max-height:125px;position:absolute;right:7%;top:10%;animation-delay:1s}
+.promo-dark{background:radial-gradient(circle at 80% 40%,#4b4e58,#17181c 72%);color:#fff}
+.promo-dark .promo-copy p{color:#d1d2d8}.promo-dark .promo-kicker{color:#ff6b77}.promo-dark:before{right:11%;background:linear-gradient(145deg,#55dfa0,#087a49)}
+@keyframes promoFloat{0%,100%{transform:translateY(0) translateZ(50px) rotateY(-10deg)}50%{transform:translateY(-12px) translateZ(70px) rotateY(5deg)}}
+.hero-slider-controls{display:flex;align-items:center;justify-content:center;gap:18px;padding-top:14px}
+.hero-slider-controls>button{width:35px;height:35px;border:0;border-radius:50%;background:linear-gradient(145deg,#fff,#e6e8ed);box-shadow:0 5px 0 #c8e6d5,0 9px 15px #0001;font-size:24px;font-weight:900;color:#079b58}
+.hero-dots{display:flex;gap:8px}.hero-dot{width:9px;height:9px;border:0;border-radius:50%;padding:0;background:#c9cbd1}.hero-dot.active{width:25px;border-radius:8px;background:#079b58}
+@media(max-width:720px){.hero-slider{border-radius:0}.hero-banner-wrap{width:100%}.hero-promo{min-height:360px;padding:25px 20px;align-items:flex-start}.promo-copy{max-width:75%}.promo-copy h2{font-size:32px}.promo-copy p{font-size:12px}.hero-promo>img{position:absolute;right:2%;bottom:18%;width:30%;max-height:140px}.hero-promo>img.promo-float{right:4%;top:5%;width:16%;max-height:70px}.hero-promo:before{width:220px;height:220px;right:-5%;top:28%}.hero-slide{min-height:0}}
+@media(prefers-reduced-motion:reduce){.hero-slide.active{animation:none}.hero-promo>img{animation:none}}
+
+
+:root{--red:#079b58;--red2:#087a49;--paper:#f2fbf6}
+body{background:linear-gradient(135deg,#f9fffb 0%,#eaf8f0 52%,#f7fffa 100%)}
+header{background:rgba(250,255,252,.91)}
+.btn{background:linear-gradient(145deg,#42d98d,#078449);box-shadow:0 8px 0 #06683b,0 14px 22px #079b5828}
+.btn:hover{box-shadow:0 11px 0 #06683b,0 20px 25px #079b5833}
+.btn:active{box-shadow:0 3px 0 #06683b}
+.btn.light{background:linear-gradient(145deg,#fff,#eaf8ef);box-shadow:0 7px 0 #c7e5d3,0 12px 20px #00000012}
+.logo{background:linear-gradient(145deg,#55dfa0,#087a49);box-shadow:inset 3px 3px 7px #b7f8d5,inset -5px -5px 10px #065d39,0 8px 18px #079b5833}
+.quick-icon,.service-card .service-icon,.verify-mark{background:linear-gradient(145deg,#55dfa0,#087a49);box-shadow:inset 2px 2px 5px #c9f7df,inset -3px -3px 5px #065d39,0 6px 12px #079b5829}
+.course-art{background:radial-gradient(circle at 30% 20%,#fff,#e4f7ed)}
+.hero-slider{background:#e9fbf1}
+.hero-promo{background:radial-gradient(circle at 75% 40%,#d8f8e7,#fff 48%,#eaf8ef)}
+.hero-promo:before{background:linear-gradient(145deg,#55dfa0,#078449);box-shadow:inset 16px 14px 30px #c9f7df,inset -18px -20px 35px #065d39,0 24px 50px #079b582b}
+.promo-dark{background:radial-gradient(circle at 80% 40%,#374a40,#101b15 72%);color:#fff}
+.promo-dark:before{background:linear-gradient(145deg,#55dfa0,#087a49)}
+.hero-slider-controls>button{color:#07864d}
+.hero-dot.active{background:#079b58}
+.service-card,.review,.course,.quick-card{background:linear-gradient(145deg,#fff,#effaf4);border-color:#fff}
+.verify-info,.verify-form{background:linear-gradient(145deg,#fff,#effaf4)}
+
+
+.stats-strip-section{padding:0 0 28px}
+.stats-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));align-items:center;gap:0;padding:14px 12px;border:1px solid #fff;border-radius:21px;background:linear-gradient(110deg,rgba(255,255,255,.96),rgba(226,248,237,.92),rgba(255,255,255,.95));box-shadow:0 10px 28px rgba(7,155,88,.10),inset 0 1px 0 #fff;overflow:hidden}
+.strip-stat{min-width:0;display:flex;align-items:center;justify-content:center;gap:11px;padding:6px 12px;border-right:1px solid #dcefe4}
+.strip-stat:last-child{border-right:0}
+.strip-icon{flex-shrink:0;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:25px;font-weight:900;color:#078449;text-shadow:1px 2px 0 #b5e8ca,2px 4px 6px #0002;filter:drop-shadow(0 3px 4px #079b5820)}
+.strip-stat strong{display:block;font-size:clamp(11px,1.2vw,16px);font-weight:950;line-height:1.3;white-space:nowrap}
+.strip-stat span{display:block;color:#606a64;font-size:11px;margin-top:3px;white-space:nowrap}
+@media(max-width:950px){.stats-strip{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:10px}.strip-stat:nth-child(3){border-right:0}.strip-stat:nth-child(4){border-right:1px solid #dcefe4}.strip-stat:nth-child(6){border-right:0}}
+@media(max-width:560px){.stats-strip-section{padding-bottom:18px}.stats-strip{grid-template-columns:repeat(2,minmax(0,1fr));padding:10px 5px;gap:6px;border-radius:16px}.strip-stat{justify-content:flex-start;padding:9px 7px;gap:7px;border-right:0!important}.strip-stat:nth-child(odd){border-right:1px solid #dcefe4!important}.strip-icon{width:30px;height:30px;font-size:21px}.strip-stat strong{font-size:12px}.strip-stat span{font-size:10px}}
+
+
+/* Responsive fixes: prevent stray horizontal lines and keep course cards 2-up on phones */
+.course-grid-extra{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.courses{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+@media(max-width:980px){
+  .courses{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .course-grid-extra{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:720px){
+  .courses,.course-grid-extra{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}
+  .course{min-width:0;width:100%;padding:12px 9px}
+  .course h3{font-size:14px;overflow-wrap:anywhere}
+  .course p{font-size:11px;min-height:0}
+  .course .btn{white-space:normal;font-size:11px;padding:10px 6px}
+  .course-art{height:80px}
+  .course-art img{width:100%;height:100%;object-fit:contain}
+  .section-head{width:100%}
+  .hero-slider-controls{border:0}
+  section:before,section:after{pointer-events:none}
+}
+
+
+.logo-frame{overflow:hidden;padding:0;background:#fff}
+.logo-frame img{display:block;width:100%;height:100%;object-fit:contain;border-radius:inherit}
+
+
+/* Final mobile layout and image loading fixes */
+html,body{max-width:100%;overflow-x:hidden}
+img{max-width:100%}
+.course-grid-extra,.courses{width:100%;min-width:0}
+.course,.service-card,.quick-card{min-width:0}
+.course-art{width:100%;overflow:hidden;border-radius:15px;background:linear-gradient(145deg,#fff,#e7f7ee)}
+.course-art img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;padding:8px;box-sizing:border-box}
+.hero-slider,.hero-banner-wrap{max-width:100%;min-width:0}
+@media(max-width:720px){
+  .wrap{width:calc(100% - 24px)}
+  .courses,.course-grid-extra{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}
+  .course{overflow:hidden;padding:11px 9px}
+  .course-art{height:76px}
+  .course h3{font-size:13px;line-height:1.3}
+  .course p{overflow-wrap:anywhere}
+  .course .btn{width:100%;max-width:100%;white-space:normal}
+  .stats-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-slide>img{width:100%;height:auto;object-fit:contain}
+  .hero-promo{width:100%;max-width:100%;overflow:hidden}
+  .hero-promo>img{max-width:34%}
+  .nav{max-width:100%}
+}
+
+
+/* Header logo image and mobile hamburger button */
+.logo-frame{display:inline-flex;align-items:center;justify-content:center;overflow:hidden;padding:0}
+.logo-frame img{display:block;width:100%;height:100%;object-fit:contain;border-radius:inherit}
+.mobile-menu-toggle{display:none;width:40px;height:40px;flex:0 0 40px;border:1px solid #d5eee0;border-radius:12px;background:linear-gradient(145deg,#fff,#eaf8f0);box-shadow:0 4px 0 #c8e6d5;align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer;padding:0}
+.mobile-menu-toggle span{display:block;width:18px;height:2px;border-radius:2px;background:#087a49;transition:transform .2s,opacity .2s}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:720px){
+ .mobile-menu-toggle{display:flex}
+ .nav-actions{display:flex;align-items:center;gap:8px}
+ .nav-actions .btn{white-space:nowrap}
+ .links{display:none;position:absolute;top:calc(100% + 8px);left:12px;right:12px;z-index:100;background:rgba(255,255,255,.98);border:1px solid #dcefe4;border-radius:16px;padding:12px;box-shadow:0 18px 38px #083b241f;flex-direction:column;align-items:stretch;gap:0}
+ .links.mobile-open{display:flex}
+ .links a{padding:12px 10px;border-bottom:1px solid #e8f5ed;font-size:14px;white-space:normal}
+ .links a:last-child{border-bottom:0}
+ header,.navbar,.nav-wrap{position:relative;z-index:100}
+}
+
+
+/* Final mobile header and solid three-line navigation */
+.logo-frame{background:transparent!important;box-shadow:none!important;padding:0!important}
+.logo-frame img{width:100%;height:100%;object-fit:contain;display:block}
+@media(max-width:720px){
+ .nav{display:flex;align-items:center;justify-content:space-between;gap:8px}
+ .brand{min-width:0;flex:1}
+ .nav-actions{display:flex;gap:8px;flex-shrink:0}
+ .nav-actions>a[href="#login"]{display:none!important}
+ .mobile-menu-toggle{display:flex!important}
+ .links{display:none!important;position:absolute!important;top:100%!important;left:12px!important;right:12px!important;width:auto!important;background:#ffffff!important;opacity:1!important;backdrop-filter:none!important;z-index:9999!important;border:1px solid #d9eee2!important;box-shadow:0 20px 40px #123c2838!important;max-height:calc(100dvh - 85px);overflow-y:auto}
+ .links.mobile-open{display:flex!important;flex-direction:column!important}
+ .links a{color:#17241c!important;background:#fff!important;opacity:1!important}
+ header{z-index:9999!important;position:sticky!important;top:0}
+}
+
+@media(max-width:900px){
+ .nav .links{display:none!important;position:absolute!important;top:calc(100% + 6px)!important;left:12px!important;right:12px!important;width:auto!important;background:#ffffff!important;opacity:1!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border:1px solid #cdebdc!important;border-radius:16px!important;padding:9px 14px!important;box-shadow:0 16px 36px rgba(0,55,30,.2)!important;z-index:9999!important;flex-direction:column!important;max-height:75vh;overflow-y:auto}
+ .nav .links.mobile-open{display:flex!important}
+ .nav .links a{display:block!important;color:#172b20!important;background:#fff!important;padding:13px 9px!important;border-bottom:1px solid #e2f3e9!important;font-size:14px!important;font-weight:700!important;text-align:left!important}
+ .nav .links a:last-child{border-bottom:0!important}
+ .mobile-menu-toggle{display:flex!important}
+ .nav-actions{display:flex;align-items:center;gap:8px}
+ header{z-index:999!important}
+}
+@media(min-width:901px){.mobile-menu-toggle{display:none!important}}
+
+/* Hard override for mobile hamburger/menu visibility */
+.mobile-menu-toggle{display:none;position:relative;z-index:10002;width:42px!important;height:42px!important;min-width:42px;border:1px solid #b7e8cd!important;border-radius:12px!important;background:#e9fff2!important;box-shadow:0 3px 0 #b8e4ca!important;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:0!important;cursor:pointer}
+.mobile-menu-toggle span{display:block!important;width:19px!important;height:2px!important;background:#087a49!important;border-radius:2px}
+@media(max-width:900px){
+ .mobile-menu-toggle{display:flex!important}
+ .nav,.navbar,.nav-wrap{position:relative!important;overflow:visible!important}
+ .nav-actions{display:flex!important;align-items:center!important;gap:8px!important}
+ .nav .links,.links#navLinks{display:none!important;position:absolute!important;top:calc(100% + 10px)!important;left:12px!important;right:12px!important;width:auto!important;height:auto!important;max-height:75vh!important;overflow-y:auto!important;visibility:visible!important;opacity:1!important;transform:none!important;pointer-events:auto!important;background:#fff!important;color:#172b20!important;border:1px solid #cdebdc!important;border-radius:16px!important;padding:10px 14px!important;box-shadow:0 18px 38px rgba(0,55,30,.23)!important;z-index:10001!important;flex-direction:column!important;gap:0!important}
+ .nav .links.mobile-open,.links#navLinks.mobile-open{display:flex!important}
+ .nav .links a,.links#navLinks a{display:block!important;visibility:visible!important;opacity:1!important;color:#172b20!important;background:#fff!important;padding:13px 10px!important;border-bottom:1px solid #e2f3e9!important;font-size:14px!important;font-weight:750!important;line-height:1.4!important;text-align:left!important}
+ .nav .links a:last-child{border-bottom:0!important}
+}
+@media(min-width:901px){.mobile-menu-toggle{display:none!important}}
+
+</style>
+</head>
+
+<!-- FULL SCREEN VIDEO POPUP -->
+
+
+
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="RSI Academy home"><span class="logo logo-frame"><img src="logo.png" alt="RSI Academy logo"></span><span>RSI ACADEMY<small>RELIABLE SKILL INSTITUTE</small></span></a>
+    
+    <nav class="links" id="navLinks"><a href="#home">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="admission.html">Admission</a><a href="certificate-verification.html">Certificate Verification</a><a href="rsilive.html">Live Class</a><a href="result.html">Results</a><a href="contact.html">Contact</a></nav>
+<a href="RSI login.html" class="btn light">Login</a> <button type="button" class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button><a class="btn" href="intern ship.html">RSI Internship ↗</a></div>
+  </div>
+</header>
+<main>
+<section class="hero" id="home" aria-label="RSI Academy home">
+  <div class="wrap hero-banner-wrap">
+    <div class="hero-slider" id="heroSlider" aria-label="RSI Academy featured slides">
+      <div class="hero-slide active"><img src="RSI hero 1.png" alt="RSI Academy computer education hero banner"></div>
+     =
+      <div class="hero-slider" id="heroSlider" aria-label="RSI Academy featured slides">
+      <div class="hero-slide active"><img src="RSI hero 2.png" alt="RSI Academy computer education hero banner"></div>
+
+    <div class="hero-slider" id="heroSlider" aria-label="RSI Academy featured slides">
+      <div class="hero-slide active"><img src="RSI hero 3.png" alt="RSI Academy computer education hero banner"></div>
+
+    </div>
+    <div class="hero-slider-controls"><button type="button" id="heroPrev" aria-label="Previous slide">‹</button><div class="hero-dots"><button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button><button class="hero-dot" data-slide="1" aria-label="Slide 2"></button><button class="hero-dot" data-slide="2" aria-label="Slide 3"></button></div><button type="button" id="heroNext" aria-label="Next slide">›</button></div>
+  </div>
+</section>
+
+<section class="stats-strip-section" aria-label="RSI Academy highlights">
+  <div class="wrap">
+    <div class="stats-strip reveal">
+      <div class="strip-stat"><div class="strip-icon">♟</div><div><strong>500+</strong><span>Students</span></div></div>
+      <div class="strip-stat"><div class="strip-icon">▣</div><div><strong>20+</strong><span>Courses</span></div></div>
+      <div class="strip-stat"><div class="strip-icon">♙</div><div><strong>Expert</strong><span>Teachers</span></div></div>
+      <div class="strip-stat"><div class="strip-icon">✓</div><div><strong>100%</strong><span>Support</span></div></div>
+      <div class="strip-stat"><div class="strip-icon">⌁</div><div><strong>Online & Offline</strong><span>Classes</span></div></div>
+      <div class="strip-stat"><div class="strip-icon">♜</div><div><strong>Certified</strong><span>Courses</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quick" id="admission">
+  <a class="quick-card" href="contact.html"><div class="quick-icon">♟</div><div><strong>Admissions Open</strong><span>Start your future today</span></div></a>
+  <a class="quick-card" href="store.html"><div class="quick-icon">▤</div><div><strong>Books & Study Materials</strong><span>Learning essentials</span></div></a>
+  <a class="quick-card" href="store.html"><div class="quick-icon">♜</div><div><strong>Official T-Shirt</strong><span>RSI Academy merchandise</span></div></a>
+  <a class="quick-card" href="referal.html"><div class="quick-icon">♧</div><div><strong>Refer & Earn</strong><span>Ask us about current offers</span></div></a>
+</div>
+<section id="courses"><div class="wrap"><div class="section-head"><div><h2>Our <span>Popular Courses</span></h2><p>Job-oriented learning • Practical training • Skill development</p></div><a class="btn" href="#contact">View All Courses →</a></div>
+  <div class="courses">
+    <article class="course"><div class="course-art" data-image-target="course-adca"><img src="adca img.png" alt="ADCA computer course image"></div><h3>ADCA</h3><p>Complete Computer Course with Practical Training</p><div class="price">₹3,999</div><a class="btn" href="admission.html" data-course="ADCA">Join Now →</a></article>
+    <article class="course"><div class="course-art" data-image-target="course-dca"><img src="DCA img.png" alt="DCA office applications image"></div><h3>DCA</h3><p>Computer Fundamentals to Office Applications</p><div class="price">₹3,499</div><a class="btn" href="admission.html" data-course="DCA">Join Now →</a></article>
+    <article class="course"><div class="course-art" data-image-target="course-web"><img src="html css img.png" alt="HTML CSS Java web development image"></div><h3>HTML + CSS + Java</h3><p>Build websites and learn programming basics</p><div class="price">₹2,499</div><a class="btn" href="admission.html" data-course="HTML + CSS + Java">Join Now →</a></article>
+    <article class="course"><div class="course-art" data-image-target="course-python"><img src="python img.png" alt="Python programming image"></div><h3>Python</h3><p>Learn programming step by step</p><div class="price">₹7,999</div><a class="btn" href="admission.html" data-course="Python">Join Now →</a></article>
+    <article class="course"><div class="course-art" data-image-target="course-cpp"><img src="c++ img.png" alt="C++ programming image"></div><h3>C++</h3><p>Logic building and system programming</p><div class="price">₹5,999</div><a class="btn" href="admission.html" data-course="C++">Join Now →</a></article>
+  </div>
+</div></section>
+
+<section id="more-courses"><div class="wrap">
+  <div class="section-head reveal"><div><h2>Explore More <span>Professional Courses</span></h2><p>Choose a learning path that matches your goals.</p></div></div>
+  <div class="course-grid-extra">
+    <article class="course reveal"><div class="course-art"><img src="ms office img.png" alt="MS Office course image"></div><h3>MS Office</h3><p>Word, Excel, PowerPoint and office productivity.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="MS Office">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="Advanced Excel IMG.png" alt="Advanced Excel course image"></div><h3>Advanced Excel</h3><p>Formulas, charts, lookup functions and reports.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Advanced Excel">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="Graphic Design img.png" alt="Graphic Design course image"></div><h3>Graphic Design</h3><p>Design basics, posters, banners and social creatives.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Graphic Design">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="web desgin img.png" alt="Web Design course image"></div><h3>Web Design</h3><p>Responsive websites with HTML, CSS and JavaScript.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Web Design">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="JAVA IMG.png" alt="Java Programming course image"></div><h3>Java Programming</h3><p>Object-oriented programming and core Java concepts.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Java Programming">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="DBS SQL IMG.png" alt="Database and SQL course image"></div><h3>Database & SQL</h3><p>Tables, queries, data management and SQL basics.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Database and SQL">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="LINUX IMG.png" alt="Linux Fundamentals course image"></div><h3>Linux Fundamentals</h3><p>Terminal basics, files, permissions and commands.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Linux Fundamentals">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="Cyber Security IMG.png" alt="Cyber Safety course image"></div><h3>Cyber Safety</h3><p>Digital safety, privacy and ethical computing basics.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Cyber Safety">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="Computer Fundamentals IMG.png" alt="Computer Fundamentals course image"></div><h3>Computer Fundamentals</h3><p>Hardware, software, operating systems and typing.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Computer Fundamentals">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="Tally Accounting IMG.png" alt="Tally and Accounting course image"></div><h3>Tally & Accounting</h3><p>Accounting workflows and business data entry.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Tally and Accounting">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="Digital Skills Course IMG.png" alt="Digital Skills course image"></div><h3>Digital Skills</h3><p>Email, online forms, internet and productivity tools.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="Digital Skills">Enquire Now →</a></article>
+    <article class="course reveal"><div class="course-art"><img src="C Programming IMG.png" alt="C Programming course image"></div><h3>C Programming</h3><p>Programming logic, syntax, functions and practice.</p><div class="price">Ask for Fee</div><a class="btn" href="admission.html" data-course="C Programming">Enquire Now →</a></article>
+  </div>
+</div></section>
+<section id="services"><div class="wrap">
+  <div class="section-head reveal"><div><h2>Our <span>Services</span></h2><p>Learning, digital support and student services in one place.</p></div></div>
+  <div class="service-grid">
+    <article class="service-card reveal"><div class="service-icon">▣</div><h3>Live Classes</h3><p>Instructor-led learning sessions and guided practice. Ask the academy for the current timetable.</p></article>
+    <article class="service-card reveal"><div class="service-icon">▤</div><h3>Study Materials</h3><p>Notes, practice tasks and learning resources to support your course.</p></article>
+    <article class="service-card reveal"><div class="service-icon">✎</div><h3>Practical Training</h3><p>Hands-on exercises to build confidence with everyday computer tools.</p></article>
+    <article class="service-card reveal"><div class="service-icon">♧</div><h3>Admission Guidance</h3><p>Get help choosing a course, understanding fees and completing admission steps.</p></article>
+    <article class="service-card reveal"><div class="service-icon">▣</div><h3>Online Store</h3><p>Ask about books, notebooks, stationery and other learning essentials.</p></article>
+    <article class="service-card reveal"><div class="service-icon">✓</div><h3>Certificate Support</h3><p>Guidance on course completion records and certificate-related enquiries.</p></article>
+    <article class="service-card reveal"><div class="service-icon">☏</div><h3>Student Help Desk</h3><p>Get help with course information, schedules and student queries.</p></article>
+    <article class="service-card reveal"><div class="service-icon">↗</div><h3>Career Guidance</h3><p>Explore skill pathways and practical next steps for your learning goals.</p></article>
+    <article class="service-card reveal"><div class="service-icon">▦</div><h3>Digital Service Assistance</h3><p>Enquire about available online form and digital-service assistance.</p></article>
+    <article class="service-card reveal"><div class="service-icon">⌘</div><h3>Project Support</h3><p>Practice project planning, basic coding and presentation of your work.</p></article>
+    <article class="service-card reveal"><div class="service-icon">◎</div><h3>Assessment Preparation</h3><p>Review course topics with practice questions and revision support.</p></article>
+    <article class="service-card reveal"><div class="service-icon">♙</div><h3>Community Learning</h3><p>Build digital confidence with a supportive learning environment.</p></article>
+  </div>
+  <p class="service-note">Service availability, course schedules, fees and eligibility may vary. Contact RSI Academy to confirm current details.</p>
+</div></section>
+
+<section id="live"><div class="wrap"><div class="strip"><div><h3>Learn skills. Build confidence.</h3><p>Supportive training for your digital future.</p></div><div class="strip-badges"><span>▣ Live Classes</span><span>▤ Study Material</span><span>☏ Doubt Support</span><span>♧ Certificates</span></div></div></div></section>
+<section id="about"><div class="wrap why-grid"><div class="video-panel"><div class="video-content"><div class="logo">✦</div><h3>RSI ACADEMY</h3><p style="color:#c7c8ce;font-size:12px">Reliable Skill Institute</p><button class="play" id="introBtn" aria-label="Play introduction">▶</button><p id="introText" style="font-size:11px">Tap to view academy introduction</p></div></div><div class="why-copy"><h2>Why Choose <span>RSI Academy?</span></h2><ul class="checks"><li><span class="check">✓</span> Practical and skill-focused learning</li><li><span class="check">✓</span> Friendly guidance and student support</li><li><span class="check">✓</span> Affordable course options</li><li><span class="check">✓</span> Learning resources and study material</li><li><span class="check">✓</span> Online and offline learning support</li><li><span class="check">✓</span> Career guidance for your next step</li></ul></div></div></section>
+<section id="results"><div class="wrap"><div class="section-head"><div><h2>What Our <span>Students Say</span></h2><p>Student feedback and learning experiences</p></div></div><div class="testimonials"><article class="review"><div class="review-top"><div class="avatar">SA</div><div><h3>Student Review</h3><div class="stars">★★★★★</div></div></div><p>“Practical classes help me understand computer topics better. The learning environment is supportive.”</p></article><article class="review"><div class="review-top"><div class="avatar">SK</div><div><h3>Student Review</h3><div class="stars">★★★★★</div></div></div><p>“The course structure is easy to follow, and I get help when I have questions.”</p></article><article class="review"><div class="review-top"><div class="avatar">RK</div><div><h3>Student Review</h3><div class="stars">★★★★★</div></div></div><p>“A good place to develop computer skills and build confidence through practice.”</p></article></div></div></section>
+
+<section id="certificate-verification"><div class="wrap">
+  <div class="section-head reveal"><div><h2>Certificate <span>Verification</span></h2><p>Check a certificate using the details printed on your RSI Academy certificate.</p></div></div>
+  <div class="verify-layout">
+    <div class="verify-info reveal">
+      <div class="verify-mark">✓</div>
+      <h3>Verify an RSI Academy Certificate</h3>
+      <p>Enter the certificate number and student name to submit a verification request. The live result requires connection to the official academy certificate database.</p>
+      <ul class="checks">
+        <li><span class="check">✓</span> Certificate number lookup</li>
+        <li><span class="check">✓</span> Student name matching</li>
+        <li><span class="check">✓</span> Official record validation</li>
+      </ul>
+    </div>
+    <form class="verify-form reveal" id="certificateForm">
+      <label for="certificateNumber">Certificate Number</label>
+      <input id="certificateNumber" name="certificateNumber" type="text" placeholder="e.g. RSI-2026-0001" required>
+      <label for="certificateStudent">Student Full Name</label>
+      <input id="certificateStudent" name="studentName" type="text" placeholder="Enter name as printed on certificate" required>
+      <label for="certificateCourse">Course (optional)</label>
+      <select id="certificateCourse" name="course">
+        <option value="">Select course</option><option>ADCA</option><option>DCA</option><option>HTML + CSS + Java</option><option>Python</option><option>C++</option><option>Other</option>
+      </select>
+      <button class="btn" type="submit">Verify Certificate →</button>
+      <p class="verify-hint">Demo form only: it does not confirm authenticity until connected to the official verification database.</p>
+      <div id="verifyResult" class="verify-result" role="status" aria-live="polite" hidden></div>
+    </form>
+  </div>
+</div></section>
+
+<section id="store"><div class="wrap"><div class="section-head"><div><h2>RSI <span>Online Store</span></h2><p>Books, stationery and useful learning supplies</p></div><a class="btn light" href="store.html" data-action="store">Explore Store →</a></div></div></section>
+</main>
+<footer id="contact"><div class="wrap"><div class="footer-grid">
+  <div class="footer-brand"><a class="brand" href="#home"><span class="logo logo-frame"><img src="logo.png" alt="RSI Academy logo"></span><span>RSI ACADEMY<small>RELIABLE SKILL INSTITUTE</small></span></a><p>कंप्यूटर शिक्षा का भरोसेमंद नाम। Your Career Is Our Mission।</p></div>
+  <div class="footer-col"><h4>Quick Links</h4><a href="#home">Home</a><a href="about.html">About Us</a><a href="courses.html">Courses</a><a href="admission.html">Admission</a><a href="certificate-verification.html">Certificate Verification</a></div>
+  <div class="footer-col"><h4>Student Corner</h4><a href="rsilive.html">Live Class</a><a href="result.html">Results & Feedback</a><a href="certificate-verification.html">Certificate Verification</a><a href="#contact" data-action="support">Student Support</a></div>
+  <div class="footer-col"><h4>Contact Us</h4><p>📍  Manjhiaon,<br>Garhwa, Jharkhand</p><a href="tel:+918102046698">☎ +91 81020 46698</a><a href="https://www.rsiacademy.com" target="_blank" rel="noopener">🌐 rsiacademy.com</a><a href="rsiacademy10@gmail.com">✉ info@rsiacademy.com</a></div>
+</div><div class="copyright"><span>© <span id="year"></span> RSI Academy. All rights reserved.</span><span>Privacy Policy &nbsp; | &nbsp; Terms & Conditions &nbsp; | &nbsp; Reliable Skill Institute</span></div></div></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+
+document.querySelectorAll('[data-upload]').forEach(input=>{
+  input.addEventListener('change',()=>{
+    const file=input.files && input.files[0];
+    if(!file) return;
+    if(!file.type.startsWith('image/')){showToast('Please choose an image file.');return;}
+    const reader=new FileReader();
+    reader.onload=()=>{
+      const targetName=input.dataset.upload;
+      const target=document.querySelector('[data-image-target="'+targetName+'"]');
+      if(!target)return;
+      if(targetName==='logo'){
+        target.innerHTML='';
+        const img=document.createElement('img');img.src=reader.result;img.alt='RSI Academy logo';img.className='logo-image';target.appendChild(img);
+      }else if(targetName==='hero'){
+        target.src=reader.result;
+        document.getElementById('heroArt').classList.add('has-upload');
+      }else{
+        target.innerHTML='';
+        const img=document.createElement('img');img.src=reader.result;img.alt=targetName.replace('course-','')+' course image';target.appendChild(img);
+      }
+      showToast('Image preview updated. Save the image file and HTML to publish it permanently.');
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+
+// Reveal cards and sections as they enter the viewport.
+const revealTargets = document.querySelectorAll('section, .quick-card, .course, .review, .strip, .video-panel, .why-copy, .section-head, .service-card');
+revealTargets.forEach((el, index) => {
+  if (!el.classList.contains('hero')) el.classList.add('reveal');
+  if (el.classList.contains('course') || el.classList.contains('service-card')) el.style.transitionDelay = ((index % 4) * 70) + 'ms';
+});
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12, rootMargin: '0px 0px -35px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+}
+
+
+const certificateForm = document.getElementById('certificateForm');
+if (certificateForm) {
+  certificateForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const result = document.getElementById('verifyResult');
+    result.hidden = false;
+    result.textContent = 'Request prepared for certificate number ' + document.getElementById('certificateNumber').value.trim() + '. This demo is not connected to the official certificate database, so authenticity cannot be confirmed here.';
+    showToast('Verification form submitted in demo mode. Connect the official database for live results.');
+  });
+}
+
+
+// Accessible 3D hero slider with automatic rotation and manual controls.
+(function(){
+  const slider=document.getElementById('heroSlider');
+  if(!slider)return;
+  const slides=Array.from(slider.querySelectorAll('.hero-slide'));
+  const dots=Array.from(document.querySelectorAll('.hero-dot'));
+  let current=0, timer;
+  function show(index){
+    current=(index+slides.length)%slides.length;
+    slides.forEach((slide,i)=>slide.classList.toggle('active',i===current));
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===current));
+  }
+  function restart(){clearInterval(timer);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(current+1),6000);}
+  document.getElementById('heroPrev')?.addEventListener('click',()=>{show(current-1);restart()});
+  document.getElementById('heroNext')?.addEventListener('click',()=>{show(current+1);restart()});
+  dots.forEach(dot=>dot.addEventListener('click',()=>{show(Number(dot.dataset.slide));restart()}));
+  slider.addEventListener('mouseenter',()=>clearInterval(timer));
+  slider.addEventListener('mouseleave',restart);
+  show(0);restart();
+})();
+
+
+const navLinks=document.getElementById('navLinks'),toast=document.getElementById('toast');let toastTimer;
+if(document.getElementById('year')) document.getElementById('year').textContent=new Date().getFullYear();
+navLinks?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+function showToast(message){if(!toast)return;toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),3200)}
+document.querySelectorAll('[data-course]').forEach(link=>link.addEventListener('click',()=>{showToast('Interested in '+link.dataset.course+'? Contact RSI Academy to confirm admission and current fees.');}));
+document.querySelectorAll('[data-action]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();const action=link.dataset.action;const messages={login:'Login portal demo: connect your student authentication system to enable sign-in.',store:'Online store preview: connect your product catalogue and checkout to enable purchases.',certificate:'Certificate verification: connect the official verification database to validate certificates.',support:'For student support, call +91 81020 46698.'};showToast(messages[action]||'Please contact RSI Academy for more information.');}));
+document.getElementById('introBtn')?.addEventListener('click',()=>{const intro=document.getElementById('introText');if(intro)intro.textContent='Welcome to RSI Academy — Learn, Practice, Grow!';showToast('Welcome to RSI Academy!');});
+</script>
+<script>
+
+</script>
+<script>
+
+// Stable mobile menu handler
+(function(){
+ const btn=document.getElementById('mobileMenuToggle');
+ const menu=document.getElementById('navLinks');
+ if(!btn||!menu)return;
+ btn.addEventListener('click',function(e){
+   e.preventDefault();
+   const open=!menu.classList.contains('mobile-open');
+   menu.classList.toggle('mobile-open',open);
+   btn.setAttribute('aria-expanded',open?'true':'false');
+ });
+ menu.querySelectorAll('a').forEach(function(link){
+   link.addEventListener('click',function(){
+     menu.classList.remove('mobile-open');
+     btn.setAttribute('aria-expanded','false');
+   });
+ });
+})();
+
+</script>
+</body>
+</html>

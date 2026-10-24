@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RSI Academy Verification</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#111111;
+  --muted:#5f5f5f;
+  --red:#19A987;
+  --red2:#7DE2C5;
+  --black:#111111;
+  --line:#ececec;
+  --glass:rgba(255,255,255,.78);
+  --shadow:0 18px 50px rgba(0,0,0,.08);
+  --radius:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Poppins',system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(25,169,135,.09), transparent 30%),
+    radial-gradient(circle at top right, rgba(17,17,17,.05), transparent 25%),
+    #fff;
+  color:var(--text);
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+.container{width:min(1180px, calc(100% - 24px));margin:0 auto;}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;}
+.brand img{width:46px;height:46px;border-radius:14px;object-fit:cover;box-shadow:0 10px 24px rgba(0,0,0,.10);}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:0 10px 20px rgba(0,0,0,.04);color:var(--muted);font-size:13px;}
+.hero{padding:20px 0 28px;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;}
+.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.02;margin:0 0 14px;letter-spacing:-1.5px;}
+.hero p{margin:0 0 24px;color:var(--muted);font-size:clamp(15px,2vw,18px);max-width:620px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero-illu{position:relative;min-height:340px;display:flex;justify-content:center;align-items:center;}
+.floating-card{width:min(100%,420px);padding:26px;border-radius:32px;background:var(--glass);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(16px);box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.floating-card::before{content:"";position:absolute;inset:-50% -30% auto auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle, rgba(25,169,135,.18), transparent 65%);}
+.illu-row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.illu-icon,.illu-shield{width:92px;height:92px;border-radius:26px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(25,169,135,.12), rgba(17,17,17,.05));border:1px solid var(--line);font-size:34px;color:var(--red);}
+.illu-shield{color:var(--black)}
+.floating-card h3{margin:18px 0 8px;font-size:22px}
+.floating-card p{margin:0;color:var(--muted)}
+.illu-photo{width:100%;height:170px;object-fit:cover;object-position:center top;border-radius:20px;margin-top:16px;border:1px solid var(--line);}
+.section{padding:18px 0 34px}
+.glass-card{background:var(--glass);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(16px);box-shadow:var(--shadow);border-radius:var(--radius);}
+.verify-wrap{width:min(760px,100%);margin:0 auto;padding:24px;}
+.verify-head{text-align:center;margin-bottom:18px}
+.verify-head h2{margin:0 0 8px;font-size:28px}
+.verify-head p{margin:0;color:var(--muted)}
+.input-group{display:grid;grid-template-columns:1fr auto;gap:12px;}
+.input{width:100%;padding:18px 18px;border-radius:18px;border:1px solid var(--line);background:#fff;outline:none;transition:.2s;font-size:16px;}
+.input:focus{border-color:rgba(25,169,135,.65);box-shadow:0 0 0 5px rgba(25,169,135,.14);}
+.small-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;}
+.btn{position:relative;border:none;border-radius:18px;padding:16px 22px;cursor:pointer;font-weight:600;transition:.25s ease;overflow:hidden;}
+.btn-primary{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 16px 30px rgba(25,169,135,.26);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 36px rgba(25,169,135,.30)}
+.btn-dark{background:#111;color:#fff;border:1px solid rgba(0,0,0,.06)}
+.btn-light{background:#fff;color:#111;border:1px solid var(--line)}
+.btn-sm{padding:13px 18px;border-radius:14px}
+.btn-ripple::after{content:"";position:absolute;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);left:50%;top:50%;margin-left:-10px;margin-top:-10px;transition:transform .5s ease, opacity .9s ease;opacity:0;}
+.btn-ripple:active::after{transform:scale(18);opacity:1;transition:0s;}
+.scan-btn{min-width:170px;display:inline-flex;align-items:center;justify-content:center;gap:10px;}
+.loading{display:none;margin-top:18px}
+.skeleton{border-radius:20px;background:linear-gradient(90deg,#f1f1f1 25%,#e9e9e9 37%,#f1f1f1 63%);background-size:400% 100%;animation:shimmer 1.2s infinite;}
+@keyframes shimmer{0%{background-position:100% 0}100%{background-position:0 0}}
+.loading-card{padding:18px;border-radius:22px;border:1px solid var(--line);background:#fff;}
+.loading-line{height:16px;margin:10px 0}
+.loading-line.w80{width:80%}.loading-line.w60{width:60%}.loading-line.w40{width:40%}
+.results{margin-top:18px}
+.result-card{padding:24px;border-radius:28px;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;overflow:hidden;}
+.success-head{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.success-tick{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:rgba(46,204,113,.12);color:#1c9b55;font-size:26px;animation:pop .55s ease;}
+@keyframes pop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+.result-title{margin:0;font-size:28px}
+.result-sub{margin:4px 0 0;color:var(--muted)}
+.student-profile{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;margin:22px 0;}
+.avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 14px 28px rgba(0,0,0,.12);}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.info-box{padding:14px 16px;border-radius:18px;background:#fafafa;border:1px solid var(--line);}
+.info-box span{display:block;color:var(--muted);font-size:12px;margin-bottom:6px;}
+.info-box strong{font-size:14px;color:#111}
+.cert-badges{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px;}
+.pill{padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#333;font-size:13px;}
+.pill.red{background:rgba(25,169,135,.09);border-color:rgba(25,169,135,.20);color:var(--red)}
+.pill.black{background:#111;color:#fff;border-color:#111}
+.signature-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;}
+.sig-box{padding:16px;border-radius:18px;border:1px dashed #ddd;text-align:center;background:#fff;}
+.sig-box img{max-height:70px;margin:0 auto 8px;object-fit:contain}
+.action-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+.fail-card{padding:26px;border-radius:28px;border:1px solid rgba(25,169,135,.22);background:linear-gradient(180deg, rgba(25,169,135,.09), #fff);box-shadow:var(--shadow);animation:fadeUp .4s ease;}
+.fail-icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(25,169,135,.12);color:var(--red);font-size:28px;margin-bottom:14px;}
+.section-title{text-align:center;margin-bottom:18px}
+.section-title h2{margin:0;font-size:30px}
+.section-title p{margin:8px 0 0;color:var(--muted)}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.feature,.stat,.faq-item{padding:20px;border-radius:24px;border:1px solid var(--line);background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.04);}
+.feature i,.stat i{color:var(--red);font-size:22px;margin-bottom:12px;}
+.feature h3,.stat h3,.faq-item h3{margin:0 0 8px;font-size:17px}
+.feature p,.stat p,.faq-item p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+.stats{margin-top:16px}
+.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.footer{padding:28px 0 90px;text-align:center;color:var(--muted);font-size:14px;}
+.floating-wa, .back-top{position:fixed;right:18px;z-index:999;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 18px 30px rgba(0,0,0,.18);}
+.floating-wa{bottom:86px;background:#25D366;color:#fff}
+.back-top{bottom:18px;background:#111;color:#fff;border:1px solid rgba(255,255,255,.08);display:none;}
+.modal{position:fixed;inset:0;background:rgba(17,17,17,.56);display:none;justify-content:center;align-items:center;padding:18px;z-index:1000;}
+.modal-box{width:min(980px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:28px;padding:22px;box-shadow:var(--shadow);animation:zoom .22s ease;}
+@keyframes zoom{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-close{float:right;border:none;background:#f3f3f3;color:#111;width:38px;height:38px;border-radius:50%;cursor:pointer;}
+.docs-header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;}
+.doc-card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.06);}
+.doc-img{width:100%;height:auto;display:block;}
+.doc-actions{display:flex;gap:10px;padding:14px;flex-wrap:wrap;background:#fafafa;border-top:1px solid var(--line);}
+.doc-actions a{display:inline-flex;align-items:center;gap:8px;}
+.form-note{margin-top:10px;color:var(--muted);font-size:13px;}
+.fade-up{animation:fadeUp .55s ease both}
+.slide-in{animation:slideIn .55s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
+
+/* Email verification popup */
+.otp-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(8,12,20,.68);backdrop-filter:blur(10px);z-index:3000;animation:otpFade .22s ease}
+.otp-box{width:min(460px,100%);background:#fff;border:1px solid rgba(255,255,255,.7);border-radius:28px;padding:26px;box-shadow:0 28px 90px rgba(0,0,0,.28);animation:otpPop .32s cubic-bezier(.2,.8,.2,1)}
+.otp-icon{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#ffe5e4,#fff);color:var(--red);font-size:25px;margin-bottom:16px}
+.otp-box h2{margin:0 0 8px;font-size:25px}.otp-box p{color:var(--muted);font-size:14px;line-height:1.6}
+.otp-box label{display:block;font-size:13px;font-weight:600;margin:14px 0 7px}
+.otp-box .input{padding:14px;border-radius:14px}.otp-row{display:flex;gap:9px;margin-top:12px}.otp-row .btn{flex:1;padding:13px 10px}
+.otp-status{min-height:22px;font-size:13px;margin-top:10px;color:var(--muted)}.otp-status.error{color:#c62828}.otp-status.ok{color:#16834a}
+@keyframes otpFade{from{opacity:0}to{opacity:1}}@keyframes otpPop{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:480px){.otp-box{padding:20px}.otp-row{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.otp-modal,.otp-box{animation:none!important}}
+
+/* FORCE LIGHT SKY-GREEN THEME + VISIBLE PLACEHOLDERS */
+:root{--bg:#f2fffb;--text:#123b34;--muted:#52746c;--red:#159b7b;--red2:#7de2c5;--black:#123b34;--line:#cceee3;--glass:rgba(247,255,252,.88);--shadow:0 18px 50px rgba(18,112,89,.12);}
+body{background:radial-gradient(circle at 8% 0%,rgba(125,226,197,.42),transparent 34%),radial-gradient(circle at 95% 8%,rgba(56,189,248,.16),transparent 28%),linear-gradient(180deg,#f4fffb 0%,#ffffff 70%);color:#123b34;}
+.input,input,textarea,select{background-color:#f5fffb;border-color:#b8e8d9;color:#123b34;caret-color:#159b7b;}
+.input::placeholder,input::placeholder,textarea::placeholder{color:#329b7d!important;opacity:1!important;font-weight:500;}
+.input::-webkit-input-placeholder,input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#329b7d!important;opacity:1!important;}
+.input::-moz-placeholder,input::-moz-placeholder,textarea::-moz-placeholder{color:#329b7d!important;opacity:1!important;}
+.input:focus,input:focus,textarea:focus,select:focus{border-color:#35b894!important;box-shadow:0 0 0 5px rgba(53,184,148,.18)!important;background-color:#ffffff;outline:none;}
+.btn-primary{background:linear-gradient(135deg,#159b7b,#7de2c5)!important;box-shadow:0 16px 30px rgba(21,155,123,.24)!important;}
+.badge,.pill,.feature,.stat,.faq-item,.result-card,.doc-card,.modal-box{border-color:#d0f0e5;}
+.floating-card::before{background:radial-gradient(circle,rgba(21,155,123,.22),transparent 65%);}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important;}}
+
+@media (max-width: 980px){.hero-grid{grid-template-columns:1fr;gap:18px}.faq-grid,.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width: 700px){.input-group{grid-template-columns:1fr}.student-profile{grid-template-columns:1fr;text-align:center;justify-items:center}.info-grid,.signature-row,.faq-grid,.grid-4{grid-template-columns:1fr}.hero h1{font-size:clamp(34px,11vw,52px)}.verify-wrap{padding:18px}.docs-grid{grid-template-columns:1fr}}
+@media print{body *{visibility:hidden}.result-card,.result-card *{visibility:visible}.result-card{position:absolute;left:0;top:0;width:100%;box-shadow:none;border:none;}}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="nav fade-up">
+    <div class="brand">
+      <img src="https://i.ibb.co/CpdGHymj/cropped-circle-image-10.png" alt="RSI">
+      <div>
+        <div style="font-size:15px;">RSI Academy</div>
+        <div style="font-size:12px;color:var(--muted);font-weight:400;">Official Verification Portal</div>
+      </div>
+    </div>
+    <div class="badge"><i class="fa-solid fa-shield-halved" style="color:var(--red)"></i> Secure & Verified</div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="fade-up">
+        <div class="badge" style="margin-bottom:16px;"><i class="fa-solid fa-circle-check" style="color:var(--red)"></i> Instant Certificate Validation</div>
+        <h1>Certificate Verification</h1>
+        <p>Verify the authenticity of your RSI Academy Certificate instantly.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-ripple" onclick="document.getElementById('certId').focus()"><i class="fa-solid fa-magnifying-glass"></i> Start Verification</button>
+          <button class="btn btn-light btn-ripple" onclick="openQRModal()"><i class="fa-solid fa-qrcode"></i> QR Scanner</button>
+        </div>
+      </div>
+
+      <div class="hero-illu slide-in">
+        <div class="floating-card">
+          <div class="illu-row">
+            <div class="illu-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="illu-shield"><i class="fa-solid fa-shield-check"></i></div>
+          </div>
+          <h3>Secure Authenticity Check</h3>
+          <p>Premium verification designed for students, employers, and institutions.</p>
+          <img class="illu-photo" src="https://i.ibb.co/gBRshC3/Chat-GPT-Image-Jul-24-2026-10-57-56-AM.png" alt="RSI Founder Samir Khan">
+          <div style="margin-top:12px;font-size:13px;color:var(--muted);">RSI Founder Samir Khan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="glass-card verify-wrap fade-up">
+      <div class="verify-head">
+        <h2>Verify Your Certificate</h2>
+        <p>Enter Certificate ID or scan QR code.</p>
+      </div>
+
+      <div class="input-group">
+        <input id="certId" class="input" placeholder="Enter Certificate ID" value="RSI/CERT/ADCA/2026/8A5R" />
+        <button class="btn btn-primary btn-ripple scan-btn" onclick="verifyCertificate()">
+          <i class="fa-solid fa-circle-check"></i> Verify Certificate
+        </button>
+      </div>
+
+      <div class="small-row">
+        <div class="form-note">Example: <b>RSI/CERT/ADCA/2026/8A5R</b></div>
+        <button class="btn btn-dark btn-sm btn-ripple" onclick="openQRModal()"><i class="fa-solid fa-qrcode"></i> QR Code Scanner</button>
+      </div>
+
+      <div id="loading" class="loading">
+        <div class="loading-card">
+          <div class="skeleton loading-line w80"></div>
+          <div class="skeleton loading-line w60"></div>
+          <div class="skeleton loading-line w40"></div>
+          <div class="skeleton loading-line" style="height:140px;margin-top:16px;"></div>
+        </div>
+      </div>
+
+      <div id="result" class="results"></div>
+    </div>
+  </section>
+
+  <footer class="footer">© 2026 RSI Academy · All Rights Reserved.</footer>
+</div>
+
+<a class="floating-wa" href="https://wa.me/919999999999" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<div class="modal" id="qrModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeQRModal()"><i class="fa-solid fa-xmark"></i></button>
+    <h3>QR Code Scanner</h3>
+    <p style="color:var(--muted);margin:0 0 16px;">Scan your certificate QR code here. Demo UI only.</p>
+    <div class="glass-card" style="padding:18px;border-radius:22px;text-align:center;">
+      <i class="fa-solid fa-qrcode" style="font-size:72px;color:var(--red);margin-bottom:10px;"></i>
+      <div style="font-weight:600;">Scanner Ready</div>
+      <div style="color:var(--muted);font-size:13px;margin-top:6px;">Connect your QR scanning logic here.</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="docsModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDocsModal()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="docs-header">
+      <div>
+        <h3 style="margin-bottom:4px;">Documents</h3>
+        <p style="margin:0;color:var(--muted);font-size:13px;">Full-size documents with download option.</p>
+      </div>
+    </div>
+    <div id="docs"></div>
+  </div>
+</div>
+
+
+<div class="otp-modal" id="otpModal" role="dialog" aria-modal="true" aria-labelledby="otpTitle">
+  <div class="otp-box">
+    <button class="modal-close" type="button" onclick="closeOtpModal()" aria-label="Close" style="float:right"><i class="fa-solid fa-xmark"></i></button>
+    <div class="otp-icon"><i class="fa-solid fa-envelope-circle-check"></i></div>
+    <h2 id="otpTitle">Email Verification</h2>
+    <p>Download karne se pehle apna email verify karein. OTP aapke email par bheja jayega.</p>
+    <label for="otpEmail">Email address</label>
+    <input class="input" id="otpEmail" type="email" placeholder="student@gmail.com" autocomplete="email">
+    <div class="otp-row"><button class="btn btn-primary btn-ripple" type="button" id="sendOtpBtn" onclick="sendEmailOtp()"><i class="fa-solid fa-paper-plane"></i> Send OTP</button></div>
+    <label for="otpCode">6-digit OTP</label>
+    <input class="input" id="otpCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="Enter email OTP">
+    <div class="otp-row">
+      <button class="btn btn-dark btn-ripple" type="button" id="verifyOtpBtn" onclick="verifyEmailOtp()"><i class="fa-solid fa-shield-check"></i> Verify & Download</button>
+    </div>
+    <div class="otp-status" id="otpStatus" role="status" aria-live="polite"></div>
+    <p style="font-size:11px;margin-bottom:0">Email OTP requires a correctly configured Supabase Auth SMTP provider.</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const certificates = {
+  "RSI/CERT/ADCA/2026/8A5R":{
+    name:"SHAIKH ARMAN",
+    reg:"RSI/ADCA/26/A2R3",
+    course:"ADCA",
+    photo:"https://i.ibb.co/W43pRmRL/Whats-App-Image-2025-08-27-at-16-36-46-8cd422a2-1-removebg-preview-1.png",
+    documents:[
+      {front:"https://i.ibb.co/HDfv42sY/CERT-Shaikh-Arman-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"},
+      {front:"https://i.ibb.co/YBBBVnbJ/MRK-Arman-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"}
+    ]
+  },
+  "RSI/CERT/ADCA/2026/F3A5":{
+    name:"FAIZAN KHAN",
+    reg:"RSI/ADCA/26/F2A9",
+    course:"ADCA",
+    photo:"https://i.ibb.co/bMfDdNdJ/Whats-App-Image-2025-08-27-at-16-36-46-9fad38b0-2.jpg",
+    documents:[
+      {front:"https://i.ibb.co/21TXHGmm/CERT-Faizan-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"},
+      {front:"https://i.ibb.co/RkkXK4JW/MRK-Faizan-2-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"}
+    ]
+  },
+
+  "RSI/MS/TIG-ARC/2013-15/000148":{
+    name:"SAJAHID KHAN",
+    reg:"RSI/REG/2013-15/000148",
+    course:"ITI",
+    photo:"https://i.ibb.co/7JTJrDqB/Gemini-Generated-Image-gj0halgj0halgj0h-removebg-preview.png",
+    documents:[
+      {front:"https://i.ibb.co/tMFnzVDy/ITI-SAJAHID-KHAN-MRK-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"},
+      {front:"https://i.ibb.co/Wvym8WZT/ITI-MRK-SAJAHID-1-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"}
+    ]
+  },
+  "RSI/CERT/ADCA/2026/M1S2":{
+    name:"MISBAH KHAN",
+    reg:"RSI/ADCA/26/M7S1",
+    course:"ADCA",
+    photo:"https://i.ibb.co/27VgWDrH/Whats-App-Image-2025-01-31-at-11-10-09-1cbb29b7-removebg-preview-1.png",
+    documents:[
+      {front:"https://i.ibb.co/yFC1Z7jn/CERT-Misbah-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"},
+      {front:"https://i.ibb.co/bgFkM4fP/MRK-Misbah-1-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"}
+    ]
+  },
+  "RSI/CERT/ADCA/2026/S1N9":{
+    name:"SANIYA KHATUN",
+    reg:"RSI/ADCA/26/S3N8",
+    course:"ADCA",
+    photo:"https://i.ibb.co/0jnvDKKT/Whats-App-Image-2025-06-15-at-09-17-59-d04413da-3.jpg",
+    documents:[
+      {front:"https://i.ibb.co/5XdhQcMd/CERT-Saniya-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"},
+      {front:"https://i.ibb.co/v6fwyg8d/MRK-Saniya-1-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"}
+    ]
+  },
+  "RSI/CERT/ADCA/2026/S4U3":{
+    name:"SUFIYAN RAZA",
+    reg:"RSI/ADCA/26/S3U9",
+    course:"ADCA",
+    photo:"https://i.ibb.co/YTNfPpjw/Whats-App-Image-2025-02-05-at-15-50-10-e3ba0284.jpg",
+    documents:[
+      {front:"https://i.ibb.co/k2yscrD9/CERT-Sufiyan-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"},
+      {front:"https://i.ibb.co/Xx2fWGNz/MRK-Sufiyan-1-page-0001.jpg",back:"https://i.ibb.co/tTdTmKNZ/Whats-App-Image-2026-04-14-at-11-55-38-AM.jpg"}
+    ]
+  }
+};
+
+const result = document.getElementById("result");
+const loading = document.getElementById("loading");
+const backTop = document.getElementById("backTop");
+const certId = document.getElementById("certId");
+
+function verifyCertificate(){
+  const id = certId.value.trim().toUpperCase();
+  result.innerHTML = "";
+  loading.style.display = "block";
+
+  setTimeout(() => {
+    loading.style.display = "none";
+    const item = certificates[id];
+
+    if(item){
+      result.innerHTML = `
+        <div class="result-card fade-up">
+          <div class="success-head">
+            <div class="success-tick"><i class="fa-solid fa-check"></i></div>
+            <div>
+              <h2 class="result-title">✅ VERIFIED</h2>
+              <p class="result-sub">Certificate details matched successfully.</p>
+            </div>
+          </div>
+
+          <div class="student-profile">
+            <img class="avatar" src="${item.photo}" alt="${item.name}">
+            <div>
+              <div class="info-grid">
+                <div class="info-box"><span>Student Name</span><strong>${item.name}</strong></div>
+                <div class="info-box"><span>Registration No.</span><strong>${item.reg}</strong></div>
+                <div class="info-box"><span>Course Name</span><strong>${item.course}</strong></div>
+                <div class="info-box"><span>Certificate ID</span><strong>${id}</strong></div>
+              </div>
+
+              <div class="cert-badges">
+                <div class="pill black"><i class="fa-solid fa-building-columns"></i> RSI Academy</div>
+                <div class="pill red"><i class="fa-solid fa-shield-halved"></i> ISO Certified</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button class="btn btn-primary btn-ripple" onclick="viewDocuments('${id}')"><i class="fa-solid fa-folder-open"></i> View Document</button>
+            <button class="btn btn-light btn-ripple" onclick="window.print()"><i class="fa-solid fa-print"></i> Print Certificate</button>
+            <button class="btn btn-dark btn-ripple" onclick="shareCertificate()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+          </div>
+        </div>
+      `;
+      notify("Certificate Verified");
+    } else {
+      result.innerHTML = `
+        <div class="fail-card fade-up">
+          <div class="fail-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <h2 style="margin:0 0 8px;">❌ Certificate Not Found</h2>
+          <p style="margin:0 0 18px;color:var(--muted);">The Certificate ID you entered is invalid or does not exist.</p>
+          <div class="action-row">
+            <button class="btn btn-primary btn-ripple" onclick="certId.value='';certId.focus()"><i class="fa-solid fa-rotate-right"></i> Try Again</button>
+            <a class="btn btn-light btn-ripple" href="https://wa.me/918102046698" target="_blank" style="display:inline-flex;align-items:center;gap:10px;"><i class="fa-brands fa-whatsapp"></i> Contact RSI Academy</a>
+          </div>
+        </div>
+      `;
+      notify("Certificate Not Found");
+    }
+
+    result.scrollIntoView({behavior:"smooth", block:"start"});
+  }, 1000);
+}
+
+function viewDocuments(id){
+  const docs = certificates[id].documents;
+  const grid = document.getElementById("docs");
+  grid.innerHTML = `<div class="docs-grid"></div>`;
+  const box = grid.querySelector(".docs-grid");
+
+  docs.forEach((d, i) => {
+    const fileNameFront = `${id}-front-${i + 1}.jpg`;
+    const fileNameBack = `${id}-back-${i + 1}.jpg`;
+    box.innerHTML += `
+      <div class="doc-card">
+        <img class="doc-img" src="${d.front}" alt="Document Front">
+        <div class="doc-actions">
+          <a class="btn btn-primary btn-sm btn-ripple" href="${d.front}" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Open Front</a>
+          <button class="btn btn-light btn-sm btn-ripple" type="button" onclick="requestDownload('${d.front}','${fileNameFront}')"><i class="fa-solid fa-download"></i> Download Front</button>
+        </div>
+      </div>
+      <div class="doc-card">
+        <img class="doc-img" src="${d.back}" alt="Document Back">
+        <div class="doc-actions">
+          <a class="btn btn-primary btn-sm btn-ripple" href="${d.back}" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Open Back</a>
+          <button class="btn btn-light btn-sm btn-ripple" type="button" onclick="requestDownload('${d.back}','${fileNameBack}')"><i class="fa-solid fa-download"></i> Download Back</button>
+        </div>
+      </div>`;
+  });
+
+  document.getElementById("docsModal").style.display = "flex";
+}
+
+function closeDocsModal(){ document.getElementById("docsModal").style.display = "none"; }
+function shareCertificate(){ if(navigator.share){ navigator.share({title:"RSI Academy Certificate", text:"Verify your RSI Academy certificate."}); } else { alert("Share not supported in this browser."); } }
+function openQRModal(){document.getElementById("qrModal").style.display = "flex";}
+function closeQRModal(){document.getElementById("qrModal").style.display = "none";}
+function notify(msg){
+  const el = document.createElement("div");
+  el.style.cssText = "position:fixed;top:18px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 18px;border-radius:999px;z-index:2000;box-shadow:0 18px 40px rgba(0,0,0,.15);";
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1800);
+}
+
+// Email OTP gate for every document download.
+const SUPABASE_URL = "https://ackvdjnmuuflwcwhbzpb.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_r9vr_L3Zf3zp0Lv_2hRS7Q_LyTgHnuQ";
+const supabaseClient = window.supabase?.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+let pendingDownload = null;
+function requestDownload(url, filename){
+  if(!/^https:\/\/i\.ibb\.co\//i.test(url)){notify("Invalid document link");return;}
+  pendingDownload={url,filename};
+  document.getElementById("otpStatus").textContent="";
+  document.getElementById("otpStatus").className="otp-status";
+  document.getElementById("otpCode").value="";
+  document.getElementById("otpModal").style.display="flex";
+  setTimeout(()=>document.getElementById("otpEmail").focus(),120);
+}
+function closeOtpModal(){document.getElementById("otpModal").style.display="none";}
+function setOtpStatus(message,type=""){const el=document.getElementById("otpStatus");el.textContent=message;el.className="otp-status "+type;}
+async function sendEmailOtp(){
+  const email=document.getElementById("otpEmail").value.trim();
+  if(!supabaseClient){setOtpStatus("Authentication service could not load. Check internet and try again.","error");return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){setOtpStatus("Please enter a valid email address.","error");return;}
+  const btn=document.getElementById("sendOtpBtn");btn.disabled=true;btn.textContent="Sending OTP…";
+  try{
+    const {error}=await supabaseClient.auth.signInWithOtp({email,options:{shouldCreateUser:true}});
+    if(error) throw error;
+    setOtpStatus("OTP sent. Check your inbox and spam folder.","ok");
+    document.getElementById("otpCode").focus();
+  }catch(e){setOtpStatus(e.message||"OTP send failed. Check Supabase Auth and SMTP settings.","error");}
+  finally{btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> Send OTP';}
+}
+async function verifyEmailOtp(){
+  const email=document.getElementById("otpEmail").value.trim();
+  const token=document.getElementById("otpCode").value.trim();
+  if(!supabaseClient){setOtpStatus("Authentication service could not load.","error");return;}
+  if(!email||!/^\d{6}$/.test(token)){setOtpStatus("Enter your email and the 6-digit OTP.","error");return;}
+  const btn=document.getElementById("verifyOtpBtn");btn.disabled=true;btn.textContent="Verifying…";
+  try{
+    const {error}=await supabaseClient.auth.verifyOtp({email,token,type:"email"});
+    if(error) throw error;
+    setOtpStatus("Email verified. Opening document…","ok");
+    const file=pendingDownload;
+    closeOtpModal();
+    if(file){
+      // Cross-origin hosts may ignore the download attribute; open the original image in a new tab after OTP.
+      const a=document.createElement("a");a.href=file.url;a.target="_blank";a.rel="noopener";a.download=file.filename;
+      document.body.appendChild(a);a.click();a.remove();
+      notify("Email verified — document opened");
+    }
+    pendingDownload=null;
+  }catch(e){setOtpStatus(e.message||"OTP verification failed. Try again.","error");}
+  finally{btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-shield-check"></i> Verify & Download';}
+}
+document.getElementById("otpModal").addEventListener("click",e=>{if(e.target.id==="otpModal")closeOtpModal();});
+
+window.addEventListener("scroll", () => { backTop.style.display = window.scrollY > 300 ? "grid" : "none"; });
+document.addEventListener("keydown", e => { if(e.key === "Escape"){ closeQRModal(); closeDocsModal(); }});
+</script>
+
+</body>
+</html>
